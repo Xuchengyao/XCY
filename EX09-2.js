@@ -4,7 +4,7 @@
  * @date    2017-05-05 09:32:50
  * @version $Id$
  */
-var map = new BMap.Map("2-map"); 
+var map = new BMap.Map("1-map"); 
 map.centerAndZoom(new BMap.Point(116.404, 39.915), 11);
 
 var myGeo = new BMap.Geocoder();    
