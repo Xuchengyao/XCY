@@ -1,0 +1,123 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+		<link rel="stylesheet" href="css/theme/serif.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section  data-transition="zoom">
+                 
+                   <div id="xiangmu" style="margin-top:80px;text-align: center;font-size: 80px;font-weight: bold">Web程序设计课程答辩</div>
+
+                  
+                  
+                    <div id="xiangmu" style="position: absolute;margin-top:150px;margin-left:200px;font-size: 35px;font-weight: bold">项目:</div>
+                    <div id="xiangmu" style="position: absolute;margin-top:155px;margin-left:300px;font-size: 30px">扫码乘车</div>
+                    <div id="xiangmu" style="position: absolute;margin-top:150px;margin-left:550px;font-size: 35px;font-weight: bold">成员:</div>
+                    <div id="xiangmu" style="position: absolute;margin-top:150px;margin-left:650px;font-size: 30px">刘庆</div>
+                    <div id="xiangmu" style="position: absolute;margin-top:190px;margin-left:650px;font-size: 30px">许承瑶</div>
+
+
+				</section>
+
+				<section data-transition="convex">
+				<img src="0.gif" >
+					
+					<pre><code data-trim>支付宝重磅上线杭州通电子公交卡功能,恰恰能很好地解决公交卡遗失或余额不足问题</code></pre>
+					作为新兴推出的功能，我们觉得有必要特地建立个专项网页做详细说明。
+				</section>
+
+				<section data-transition="concave">
+					<h2>初步构建</h2>
+					<ul>
+						<li>架构进度条</li>
+						<li>页面完善</li>
+						<li>添加素材</li>
+					</ul>
+					 <p class="fragment" style="position:absolute;color: grey;font-size: 30px">由此，我们遇到第一个问题，进度条</p>
+				</section>
+				<section style="text-align: left;">
+				<h3>这里就考虑到bootstrap的使用</h3>
+                <blockquote style="background-color: black;color: white;white;width:1000px">
+                $(document).ready(function(){
+		        $('.carousel').carousel(     
+			     {
+				"pause":"false",
+				"interval":20000      
+			      }
+		        );
+				 </blockquote>
+				 <blockquote style="background-color: black;color: white;width:1000px;height:400px">
+				 $('.carousel').on('slide.bs.carousel', function (event) {
+			var tag = $(event.relatedTarget).attr("tag");
+			var progress = $(event.relatedTarget).attr("progress");
+			
+			$('#img_home').attr("src", "images/home.png");
+			.........
+			$('#img_' + tag).attr("src", "images/" + tag + "_selected.png");
+			$("#progress").animate({width: progress, left: (progress / 2) - 400}, 500);
+			playAnimation(tag);
+		});
+                  </blockquote>
+
+				</section>
+				<section style="text-align: left;">
+               
+					 <p class="fragment">由于页面的简洁，我们决定增加趣味小动画</p>
+					 <p class="fragment" style="color: red;font-size: 50px">
+					 虽然一点都不简单!!</p>
+					 <p class="fragment" style="position:absolute;margin-left: -100px;margin-top: 60px"> <img src="demo01.PNG" > </p>
+					 <p class="fragment" style="position:absolute;margin-left: 500px;margin-top: 60px;width:800px;height:300px;"> <img src="demo02.PNG" ></p>
+					 
+
+					 
+					
+				</section>
+				<section style="text-align: center;">
+                <h1>THE END</h1>
+                <h3>Thanks</h3>
+					<p>
+					  - <a href="https://lliuqing.github.io/liuqing.github.com/ ">演示</a> <br>
+					</p>
+				</section>
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>
